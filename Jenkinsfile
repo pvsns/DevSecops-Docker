@@ -27,8 +27,8 @@ pipeline {
             steps {
               withDockerRegistry([credentialsId: "docker-hub", url: "https://registry.gitlab.com/"]) {
                 sh 'printenv'
-                sh 'sudo docker build -t registry.gitlab.com/pvsns/numeric-app:""$GIT_COMMIT"" .'
-                sh 'sudo docker push registry.gitlab.com/pvsns/numeric-app:""$GIT_COMMIT""'
+                sh 'docker build -t registry.gitlab.com/pvsns/numeric-app:""$GIT_COMMIT"" .'
+                sh 'docker push registry.gitlab.com/pvsns/numeric-app:""$GIT_COMMIT""'
             }
          }
       }
